@@ -1,0 +1,25 @@
+void preOrder(Node *root) 
+    {
+        std::stack<Node*> MyStack;
+        MyStack.push(root);
+        Node* temp = root;
+        cout << temp->data << ' ';
+        temp = temp->left;
+        while(true)
+        {
+            while(temp)
+            {
+                cout << temp->data << ' ';
+                MyStack.push(temp);
+                temp = temp->left;
+            }
+            if(MyStack.empty())
+            {
+                break;
+            }
+            //temp == nullptr
+            temp = MyStack.top();
+            MyStack.pop();
+            temp = temp->right;
+        }
+    }
